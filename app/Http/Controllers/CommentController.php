@@ -15,7 +15,7 @@ class CommentController extends Controller
             $req = request();
             // $post->Comments()->create([
             Comment::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id,//whichislogined
             'body' => $req->comment,
             'commentable_id' => $postId,
             'commentable_type' => Post::class,

@@ -15,7 +15,7 @@ class Comment extends Model
         'commentable_type'
     ];
 
-    public function commentable()
+    public function commentable()//polymorphic relation
     {
         return $this->morphTo();
     }

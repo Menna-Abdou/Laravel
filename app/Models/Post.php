@@ -20,7 +20,7 @@ class Post extends Model
     }
     public function comments()
     {
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');//name of polymorphic relation
         // return $this->hasMany(Comment::class, 'commentable');
     }
 }
