@@ -6,7 +6,6 @@
 <div class="card bg-light mt-5" >
   <div class="card-header">Post Info</div>
   <div class="card-body">
-
     <h5 class="card-title" style="font-size:18px;display:inline;">Title</h5>
     <p class="card-text" style="display:inline;"> {{$post['title']}}</p>
     <h5 class="card-title mt-4" style="font-size:18px">Description</h5>

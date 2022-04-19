@@ -1,16 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Str;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller{
     public function index(){
         // $posts=Post::all();
+        // $posts=Post::with('user')->get();
+
         $posts = Post::paginate(5);
        return view('posts.index',['allPosts'=>$posts]);
     }
@@ -101,7 +105,10 @@ class PostController extends Controller{
     }
 //----------------------------------------------------------------------
     public function destroy ($id){
-        Post::where('id', $id)->delete();
+        $post = Post::where('id', $id);
+        $com= Comment::where('commentable_id',$id);
+        $com->delete();
+        $post->delete();
            return redirect()->route('posts.index');
        }
 }
